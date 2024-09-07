@@ -6,7 +6,10 @@ import styles from "./ContactsList.module.css";
 
 function Contactslist({ contacts, deleteHandler }) {
   return (
+    
+   
     <div className={styles.container}>
+     
       <h3>Contacts List</h3>
       {/* <SearchBox /> */}
       {/* <ul>
@@ -31,6 +34,7 @@ function Contactslist({ contacts, deleteHandler }) {
         <p className={styles.message}>No Contact Yet!</p>
       )}
     </div>
+   
   );
 }
 

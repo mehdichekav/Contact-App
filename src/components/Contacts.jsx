@@ -12,6 +12,7 @@ import SearchBox from "./SearchBox";
 function Contacts() {
   const [alert, setAlert] = useState("");
   const [contacts, setContacts] = useState([]);
+  
   const [search, setSearch] = useState([]);
   const [contact, setContact] = useState({
     id: "",
@@ -25,11 +26,13 @@ function Contacts() {
     if (search) {
       const newSearch = contacts.filter((contact) =>
         contact.name.toLowerCase().includes(search) 
-      // const newSearch = contacts.filter((contact) => contact.name === name);
+      
     );
-      setSearch(newSearch);
+      setContacts(newSearch);
+     
     } else {
-      setSearch(contacts);
+      setContacts(contacts);
+      
     }
   };
 
@@ -68,11 +71,7 @@ function Contacts() {
 
   return (
     <>
-      <SearchBox
-        search={search}
-        setSearch={setSearch}
-        searchHandler={searchHandler}
-      />
+    
       <div className={styles.container}>
         <div className={styles.form}>
           {inputs.map((input, index) => (
@@ -85,12 +84,20 @@ function Contacts() {
               onChange={changeHandler}
             />
           ))}
-         
+      
           <button onClick={addhandler}>Add Contact</button>
+      
         </div>
+        <SearchBox 
+        search={search}
+        setSearch={setSearch}
+        searchHandler={searchHandler}
+      />
         <div className={styles.alert}>{alert && <p>{alert}</p>}</div>
+      
         <Contactslist contacts={contacts} deleteHandler={deleteHandler} />
       </div>
+  
     </>
   );
 }

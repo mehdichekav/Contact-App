@@ -5,7 +5,7 @@ function ContactsItem({
   deleteHandler
 }) {
   return (
-    
+      
    
     <li className={styles.item}>
       <p>
