@@ -10,9 +10,12 @@ import { v4 } from "uuid";
 import SearchBox from "./SearchBox";
 
 function Contacts() {
+  const [email, setEmail] = useState("bac@gmail.com");
+  const [message, setMessage] = useState(" ");
+
   const [alert, setAlert] = useState("");
   const [contacts, setContacts] = useState([]);
-  
+
   const [search, setSearch] = useState([]);
   const [contact, setContact] = useState({
     id: "",
@@ -22,17 +25,31 @@ function Contacts() {
     phone: "",
   });
 
+
+
+
+  
+  function emailHandler(event) {
+    const newEmail = event.target.value;
+    setEmail(newEmail);
+    if (!validator.isEmail(newEmail)) {
+      setMessage("Please, enter a valid email!");
+    } else {
+      setMessage("");
+    }
+  }
+
+
+
+
   const searchHandler = () => {
     if (search) {
       const newSearch = contacts.filter((contact) =>
-        contact.name.toLowerCase().includes(search) 
-      
-    );
+        contact.name.toLowerCase().includes(search)
+      );
       setContacts(newSearch);
-     
     } else {
       setContacts(contacts);
-      
     }
   };
 
@@ -68,10 +85,8 @@ function Contacts() {
     setContacts(newContacts);
   };
 
-
   return (
     <>
-    
       <div className={styles.container}>
         <div className={styles.form}>
           {inputs.map((input, index) => (
@@ -82,22 +97,24 @@ function Contacts() {
               name={input.name}
               value={contact[input.name]}
               onChange={changeHandler}
+              
+              
             />
           ))}
-      
-          <button onClick={addhandler}>Add Contact</button>
-      
+          
+            <button onClick={addhandler} >Add Contact</button>
+          
+          
         </div>
-        <SearchBox 
-        search={search}
-        setSearch={setSearch}
-        searchHandler={searchHandler}
-      />
+        <SearchBox
+          search={search}
+          setSearch={setSearch}
+          searchHandler={searchHandler}
+        />
         <div className={styles.alert}>{alert && <p>{alert}</p>}</div>
-      
+
         <Contactslist contacts={contacts} deleteHandler={deleteHandler} />
       </div>
-  
     </>
   );
 }

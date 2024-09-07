@@ -1,9 +1,15 @@
+
+
 import styles from './ContactItem.module.css'
 
 function ContactsItem({
   data: { id, name, lastName, email, phone },
-  deleteHandler
-}) {
+  deleteHandler, emailHandler
+})
+
+{
+ 
+
   return (
       
    
@@ -13,7 +19,7 @@ function ContactsItem({
       </p>
       <p>
         <span>📬</span> {email}
-      </p>
+      </p> 
       <p>
         <span>📞</span> {phone}
       </p>
