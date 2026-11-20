@@ -1,20 +1,20 @@
 .container {
     margin: 50px 0;
-    text-align: center;
+    text-align: center;  
 }
 
 .container h1 {
-    color: #304ffe;
+    color: #1a3dec;
     margin-bottom: 20px;
 }
 
 .container p {
-    color: grey;
+    color: rgb(0, 0, 0);
 }
 
 .container a {
     text-decoration: none;
-    color: #304ffe;
+    color: #304ff2;
     background-color: #bbdefb;
     padding: 3px 5px;
     border-radius: 5px;
@@ -23,5 +23,6 @@
 
 .container a:hover {
     color: #bbdefb;
-    background-color: #304ffe;
+    background-color: #304ff2;
 }
+
