@@ -198,6 +198,7 @@ function Contacts() {
         deleteHandler={confirmDeleteSingle}
         editHandler={editHandler}
         handleSelect={handleSelect}
+        selectedContacts={selectedContacts}
       />
     </div>
   );

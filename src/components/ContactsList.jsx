@@ -1,7 +1,7 @@
 import ContactItem from "./ContactItem";
 import styles from "./ContactsList.module.css";
 
-function ContactsList({ contacts, deleteHandler, editHandler, handleSelect }) {
+function ContactsList({ contacts, deleteHandler, editHandler, handleSelect, selectedContacts}) {
   return (
     <div className={styles.container}>
       <h3>My Contacts ({contacts.length})</h3>
@@ -13,6 +13,7 @@ function ContactsList({ contacts, deleteHandler, editHandler, handleSelect }) {
               <ContactItem
                 key={contact.id}
                 data={contact}
+                checked={selectedContacts.includes(contact.id)}
                 deleteHandler={deleteHandler}
                 editHandler={editHandler}
                 handleSelect={handleSelect}

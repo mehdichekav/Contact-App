@@ -5,6 +5,7 @@ function ContactItem({
   deleteHandler,
   editHandler,
   handleSelect,
+  checked
 }) {
   return (
     <li className={styles.item}>
@@ -23,6 +24,7 @@ function ContactItem({
       <div className={styles.actions}>
         <input
           type="checkbox"
+          checked={checked}
           onChange={(e) => handleSelect(id, e.target.checked)}
         />
         <button onClick={() => editHandler(id)} type="button">
